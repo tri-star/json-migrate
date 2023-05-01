@@ -10,7 +10,7 @@ export async function runPerDocumentVersionedMigration(definitions: PerDocumentM
   } catch(e) {
     // TODO: どのdefinitionでエラーになったか、どのドキュメントでエラーになったかを返す
     // サービス専用のエラーをthrowする
-    throw new Error('migration verification failed: ' + e.message)
+    throw new Error('migration verification failed: ' + e)
   }
 
   try {
@@ -20,7 +20,7 @@ export async function runPerDocumentVersionedMigration(definitions: PerDocumentM
   } catch(e) {
     // TODO: どのdefinitionでエラーになったか、どのドキュメントでエラーになったかを返す
     // サービス専用のエラーをthrowする
-    throw new Error('migration error: ' + e.message)
+    throw new Error('migration error: ' + e)
   }
 }
 
