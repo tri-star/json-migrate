@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "type-check",
+      "problemMatcher": [],
+      "label": "npm: type-check",
+      "detail": "tsc --noEmit"
+    },
+    {
+      "type": "npm",
+      "script": "lint",
+      "problemMatcher": [],
+      "label": "npm: lint",
+      "detail": "eslint -c .eslintrc.js --ext .ts ./src && prettier --check ./src/**/*.ts"
+    }
+  ]
+}
