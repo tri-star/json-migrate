@@ -3,11 +3,9 @@ type BackupDefinition = {
   restore: (document: unknown) => Promise<void> | void
 }
 
-type UnknownObject = {
-  [key: string]: unknown
-}
+type UnknownObject = Record<string, unknown>
 
-export interface VersionedDocument {
+export type VersionedDocument = {
   version: number
   [key: string]: unknown
 }

@@ -1,6 +1,6 @@
-import { PerDocumentMigrationDefinition } from '../domain/migration-definition'
+import { type PerDocumentMigrationDefinition } from '../domain/migration-definition'
 
-export async function runPerDocumentVersionedMigration(definitions: PerDocumentMigrationDefinition[]) {
+export async function runPerDocumentVersionedMigration(definitions: PerDocumentMigrationDefinition[]): Promise<void> {
   try {
     for (const definition of definitions) {
       await verify(definition)
@@ -8,7 +8,7 @@ export async function runPerDocumentVersionedMigration(definitions: PerDocumentM
   } catch (e) {
     // TODO: どのdefinitionでエラーになったか、どのドキュメントでエラーになったかを返す
     // サービス専用のエラーをthrowする
-    throw new Error('migration verification failed: ' + e)
+    throw new Error(`migration verification failed: ${e as string}`)
   }
 
   try {
@@ -18,18 +18,18 @@ export async function runPerDocumentVersionedMigration(definitions: PerDocumentM
   } catch (e) {
     // TODO: どのdefinitionでエラーになったか、どのドキュメントでエラーになったかを返す
     // サービス専用のエラーをthrowする
-    throw new Error('migration error: ' + e)
+    throw new Error(`migration error: ${e as string}`)
   }
 }
 
-async function verify(definition: PerDocumentMigrationDefinition) {
+async function verify(definition: PerDocumentMigrationDefinition): Promise<void> {
   const documents = await definition.getDocuments()
   for (const document of documents) {
     await definition.migrate(document)
   }
 }
 
-async function migrate(definition: PerDocumentMigrationDefinition) {
+async function migrate(definition: PerDocumentMigrationDefinition): Promise<void> {
   const documents = await definition.getDocuments()
   for (const document of documents) {
     const migratedDocument = await definition.migrate(document)
