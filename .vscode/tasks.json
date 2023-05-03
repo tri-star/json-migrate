@@ -14,6 +14,14 @@
       "problemMatcher": [],
       "label": "npm: lint",
       "detail": "eslint -c .eslintrc.js --ext .ts ./src && prettier --check ./src/**/*.ts"
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: build",
+      "detail": "tsc -c tsconfig.build.json"
     }
   ]
 }

@@ -4,6 +4,7 @@
   "description": "A JSON migration tool that also supports rollback (by backing up all target files before migration starts).",
   "main": "index.js",
   "scripts": {
+    "build": "tsc -p tsconfig.build.json",
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "tsc --noEmit",
     "lint": "eslint -c .eslintrc.js --ext .ts ./src && prettier --check ./src/**/*.ts",
