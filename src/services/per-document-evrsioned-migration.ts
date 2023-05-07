@@ -35,8 +35,8 @@ async function migrate(definition: PerDocumentMigrationDefinition): Promise<void
     const migratedDocument = await definition.migrate(document)
 
     await definition.commit({
-      version: definition.version,
       ...migratedDocument,
+      version: definition.version,
     })
   }
 }
