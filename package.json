@@ -1,8 +1,9 @@
 {
-  "name": "@tristar/json-migrate",
+  "name": "@tri-star/json-migrate",
   "version": "0.1.0",
-  "description": "A JSON migration tool that also supports rollback (by backing up all target files before migration starts).",
-  "main": "./dist/index.js",
+  "description": "A JSON migration tool that handles client side JSON migration(e.g. setting stored in LocalStorage)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
@@ -15,7 +16,7 @@
     "json",
     "migration"
   ],
-  "author": "tristar",
+  "author": "tri-star",
   "license": "MIT",
   "dependencies": {
     "typescript": "^5.0.4"
