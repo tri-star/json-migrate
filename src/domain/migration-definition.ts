@@ -5,12 +5,7 @@ export type VersionedDocument = {
   [key: string]: unknown
 }
 
-export type PerDocumentMigrationDefinition = {
-  type: 'per_document'
+export type MigrationDefinition = {
   version: number
   migrate: (document: UnknownObject) => UnknownObject | Promise<UnknownObject>
 }
-
-export type MigrationDefinition = { type: 'centerized' } | PerDocumentMigrationDefinition
-
-export type VersionStrategy = MigrationDefinition['type']

@@ -1,5 +1,5 @@
 import { describe, test, expect, vi } from 'vitest'
-import { type VersionedDocument, type PerDocumentMigrationDefinition } from '@/domain/migration-definition'
+import { type VersionedDocument, type MigrationDefinition } from '@/domain/migration-definition'
 import { runPerDocumentVersionedMigration } from '@/services/per-document-versioned-migration'
 
 describe('Operation with a single migration definition', () => {
@@ -10,8 +10,7 @@ describe('Operation with a single migration definition', () => {
       color: 'red',
     }
 
-    const definition: PerDocumentMigrationDefinition = {
-      type: 'per_document',
+    const definition: MigrationDefinition = {
       version: 2,
       migrate: (document) => {
         return {
@@ -37,8 +36,7 @@ describe('Operation with a single migration definition', () => {
       version: 1,
       color: 'red',
     }
-    const definition: PerDocumentMigrationDefinition = {
-      type: 'per_document',
+    const definition: MigrationDefinition = {
       version: 2,
       migrate: (document) => {
         return {
@@ -64,9 +62,8 @@ describe('Operation with a multiple migration definition', () => {
       color: 'red',
     }
 
-    const definitions: PerDocumentMigrationDefinition[] = [
+    const definitions: MigrationDefinition[] = [
       {
-        type: 'per_document',
         version: 2,
         migrate: (document) => {
           return {
@@ -76,7 +73,6 @@ describe('Operation with a multiple migration definition', () => {
         },
       },
       {
-        type: 'per_document',
         version: 3,
         migrate: (document) => {
           return {
@@ -105,9 +101,8 @@ describe('Operation with a multiple migration definition', () => {
     }
 
     const spy = vi.fn()
-    const definitions: PerDocumentMigrationDefinition[] = [
+    const definitions: MigrationDefinition[] = [
       {
-        type: 'per_document',
         version: 1,
         migrate: (document) => {
           spy()
@@ -115,7 +110,6 @@ describe('Operation with a multiple migration definition', () => {
         },
       },
       {
-        type: 'per_document',
         version: 2,
         migrate: (document) => {
           spy()
@@ -123,7 +117,6 @@ describe('Operation with a multiple migration definition', () => {
         },
       },
       {
-        type: 'per_document',
         version: 3,
         migrate: (document) => {
           return {
@@ -151,9 +144,8 @@ describe('Operation with a multiple migration definition', () => {
       color: 'red',
     }
     const spy = vi.fn()
-    const definitions: PerDocumentMigrationDefinition[] = [
+    const definitions: MigrationDefinition[] = [
       {
-        type: 'per_document',
         version: 2,
         migrate: (document) => {
           return {
@@ -163,7 +155,6 @@ describe('Operation with a multiple migration definition', () => {
         },
       },
       {
-        type: 'per_document',
         version: 3,
         migrate: (document) => {
           spy()
@@ -186,8 +177,7 @@ describe('Documentation without version', () => {
     const initialDocument: VersionedDocument = {
       color: 'red',
     }
-    const definition: PerDocumentMigrationDefinition = {
-      type: 'per_document',
+    const definition: MigrationDefinition = {
       version: 1,
       migrate: (document) => {
         return {

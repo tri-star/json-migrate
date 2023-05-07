@@ -1,9 +1,9 @@
 import { unwrapPromise } from '@/lib/promise'
-import { type VersionedDocument, type PerDocumentMigrationDefinition } from '../domain/migration-definition'
+import { type VersionedDocument, type MigrationDefinition } from '../domain/migration-definition'
 
 export async function runPerDocumentVersionedMigration(
   document: VersionedDocument,
-  definitions: PerDocumentMigrationDefinition[]
+  definitions: MigrationDefinition[]
 ): Promise<VersionedDocument> {
   let pendingDocument = document
   try {
@@ -21,10 +21,7 @@ export async function runPerDocumentVersionedMigration(
   return pendingDocument
 }
 
-async function migrate(
-  document: VersionedDocument,
-  definition: PerDocumentMigrationDefinition
-): Promise<VersionedDocument> {
+async function migrate(document: VersionedDocument, definition: MigrationDefinition): Promise<VersionedDocument> {
   const migratedDocument = await unwrapPromise(definition.migrate(document))
 
   return {
