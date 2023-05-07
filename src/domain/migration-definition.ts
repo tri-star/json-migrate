@@ -8,9 +8,7 @@ export type VersionedDocument = {
 export type PerDocumentMigrationDefinition = {
   type: 'per_document'
   version: number
-  getDocument: () => VersionedDocument | Promise<VersionedDocument>
   migrate: (document: UnknownObject) => UnknownObject | Promise<UnknownObject>
-  commit: (VersionedDocument: VersionedDocument) => void | Promise<void>
 }
 
 export type MigrationDefinition = { type: 'centerized' } | PerDocumentMigrationDefinition
