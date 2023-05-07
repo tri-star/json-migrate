@@ -1,6 +1,6 @@
 import { describe, test, expect, vi } from 'vitest'
 import { type VersionedDocument, type PerDocumentMigrationDefinition } from '@/domain/migration-definition'
-import { runPerDocumentVersionedMigration } from '@/services/per-document-evrsioned-migration'
+import { runPerDocumentVersionedMigration } from '@/services/per-document-versioned-migration'
 
 describe('Operation with a single migration definition', () => {
   test('That migration applied when the migration definition has been successfully processed.', async () => {
