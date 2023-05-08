@@ -1,5 +1,5 @@
-import { type MigrationDefinition, type VersionedDocument } from './domain/migration-definition'
-import { runPerDocumentVersionedMigration } from './services/per-document-versioned-migration'
+import { type MigrationDefinition, type VersionedDocument } from './domain/migration-definition.js'
+import { runPerDocumentVersionedMigration } from './services/per-document-versioned-migration.js'
 
 export type { MigrationDefinition, VersionedDocument }
 

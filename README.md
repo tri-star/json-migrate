@@ -26,7 +26,7 @@ const initialDocument = {
 // Migration definition.
 const definitions: MigrationDefinition[] = [
   {
-    version: 1,
+    version: 2,
     migrate: (document: VersionedDocument) => {
       return {
         ...document,
@@ -35,7 +35,7 @@ const definitions: MigrationDefinition[] = [
     },
   },
   {
-    version: 2,
+    version: 3,
     // async function also supported.
     migrate: async (document: VersionedDocument) => {
       return await new Promise((resolve) =>
@@ -50,6 +50,7 @@ const definitions: MigrationDefinition[] = [
 
 try {
   const migratedDocument = await migrate(initialDocument, definitions)
+  console.log(migratedDocument)
   // {
   //   version: 3,
   //   color: 'red',

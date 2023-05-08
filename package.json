@@ -1,6 +1,6 @@
 {
   "name": "@tri-star/json-migrate",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "A JSON migration tool that handles client side JSON migration(e.g. setting stored in LocalStorage)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

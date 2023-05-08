@@ -1,5 +1,5 @@
-import { unwrapPromise } from '@/lib/promise'
-import { type VersionedDocument, type MigrationDefinition } from '../domain/migration-definition'
+import { unwrapPromise } from '../lib/promise.js'
+import { type VersionedDocument, type MigrationDefinition } from '../domain/migration-definition.js'
 
 export async function runPerDocumentVersionedMigration(
   document: VersionedDocument,
